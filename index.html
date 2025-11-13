@@ -22,6 +22,71 @@
       color: #f2f2f2;
     }
 
+    /* === מסך התחברות === */
+    #login-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #0e0e10, #101824);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .login-box {
+      background: #11141b;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .login-box h2 {
+      color: #3ba4ff;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    .login-box input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #1a1f2b;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .login-box button {
+      width: 100%;
+      margin-top: 15px;
+      background: #3ba4ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #338bda;
+    }
+
+    /* תוכן האתר */
+    main { display: none; } /* מוסתר עד שמתחברים */
+
     header {
       background: linear-gradient(90deg, #0e0e10, #101824);
       display: flex;
@@ -47,9 +112,7 @@
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #3ba4ff;
-    }
+    nav a:hover { color: #3ba4ff; }
 
     section {
       padding: 80px 10%;
@@ -61,18 +124,8 @@
       padding: 100px 10%;
     }
 
-    .hero h2 {
-      font-size: 2.5em;
-      color: #3ba4ff;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
+    .hero h2 { font-size: 2.5em; color: #3ba4ff; margin-bottom: 20px; }
+    .hero p { font-size: 1.2em; color: #ccc; margin-bottom: 30px; }
     .hero button {
       background: #3ba4ff;
       color: #fff;
@@ -83,53 +136,7 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
-    .hero button:hover {
-      background: #338bda;
-    }
-
-    .contest, .about, .community, .contact {
-      background: #11141b;
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 50px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-
-    h3 {
-      color: #3ba4ff;
-      font-size: 1.8em;
-      margin-bottom: 15px;
-    }
-
-    p {
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    form input, form textarea, form select {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      background: #1a1f2b;
-      color: #fff;
-    }
-
-    form button {
-      background: #3ba4ff;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    form button:hover {
-      background: #338bda;
-    }
+    .hero button:hover { background: #338bda; }
 
     footer {
       text-align: center;
@@ -137,255 +144,70 @@
       background: #0b0c10;
       color: #777;
     }
-
-    .tools-container .tool-card:hover {
-      transform: translateY(-5px);
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 2em; }
-      .hero p { font-size: 1em; }
-      nav { display: none; }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NoamEditz1</h1>
-    <nav>
-      <a href="#home">בית</a>
-      <a href="#contest">תחרות</a>
-      <a href="#community">קהילה</a>
-      <a href="#about">עליי</a>
-      <a href="#contact">צור קשר</a>
-    </nav>
-  </header>
-
-  <section id="home" class="hero">
-    <h2>ברוכים הבאים ל-NoamEditz1 🎬</h2>
-    <p>האדיטים הכי חזקים, האנרגיות הכי גבוהות – והקהילה הכי נאמנה 🔥</p>
-    <button onclick="window.open('https://www.youtube.com/channel/UCM8QovN6fSGExubXBPXqPsw/', '_blank')">צפה בערוץ</button>
-  </section>
-
-  <section id="contest" class="contest">
-    <h3>🏆 תחרות מס' 1 - לא פעיל.</h3>
-    <p>חושבים שאתם יודעים לערוך? הראו לנו את זה!  
-    צרו אדיט בסגנון של NoamEditz1 והעלו לטיקטוק עם ההאשטאג #NoamEditzChallenge 💪</p>
-    <form id="contest-form">
-      <input type="text" placeholder="שם המשתתף" required />
-      <input type="url" placeholder="קישור לסרטון שלך" required />
-      <button type="submit">שלח השתתפות</button>
+  <!-- מסך התחברות -->
+  <div id="login-screen">
+    <form id="login-form" class="login-box" method="POST" action="https://formcarry.com/s/wsw98PJ5UvA">
+      <h2>התחברות ל-NoamEditz1</h2>
+      <input type="email" name="email" placeholder="אימייל" required />
+      <input type="password" name="password" placeholder="סיסמה" required />
+      <button type="submit">התחבר</button>
+      <p id="login-message" style="margin-top:15px; color:#3ba4ff;"></p>
     </form>
-  </section>
-
-  <section id="community" class="community">
-    <h3>💬 הצטרף לקהילה</h3>
-    <p>📺 עקבו אחרי הערוץ הרשמי:  
-      <br><a href="https://www.youtube.com/channel/UCM8QovN6fSGExubXBPXqPsw/" target="_blank" style="color:#3ba4ff;">YouTube.com/@NoamEditz1</a>
-    </p>
-  </section>
-
-  <section id="about" class="about">
-    <h3>🧠 עליי</h3>
-    <p>אני נועם, אדיטור ישראלי בן 14.  
-    יצרתי את הערוץ NoamEditz1 כדי לשתף את התשוקה שלי לעריכה, ביטים ואנרגיה גבוהה ⚡  
-    תודה לכל מי שתומך – אתם הופכים את זה למשהו ענק 💙</p>
-  </section>
-
-  <section id="tools" class="contest">
-    <h3>🛠️ כלים שימושיים</h3>
-    <p>כלים פשוטים ומועילים לעריכת אדיטים ותזמון תוכן 🎬</p>
-    <div class="tools-container" style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:30px;">
-      
-      <!-- רקע שקוף -->
-      <div class="tool-card" style="background:#1a1f2b; padding:20px; border-radius:15px; width:250px; text-align:center; box-shadow:0 0 15px rgba(0,0,0,0.3); transition:0.3s;">
-        <div class="icon" style="font-size:50px; margin-bottom:15px;">🖼️</div>
-        <h4 style="color:#3ba4ff; margin-bottom:10px;">רקע שקוף / PNG Maker</h4>
-        <p style="color:#ccc; font-size:0.9em; margin-bottom:15px;">העלה תמונה וקבל רקע שקוף, מוכן לשימוש באדיט שלך.</p>
-        <button style="padding:10px 20px; border-radius:10px; background:#3ba4ff; color:white; border:none; cursor:pointer; transition:0.3s;" 
-          onclick="window.open('https://www.remove.bg/', '_blank')">פתח כלי</button>
-      </div>
-
-      <!-- תזמון -->
-      <div class="tool-card" style="background:#1a1f2b; padding:20px; border-radius:15px; width:250px; text-align:center; box-shadow:0 0 15px rgba(0,0,0,0.3); transition:0.3s;">
-        <div class="icon" style="font-size:50px; margin-bottom:15px;">⏰</div>
-        <h4 style="color:#3ba4ff; margin-bottom:10px;">תזמון העלאה / לוח זמנים</h4>
-        <p style="color:#ccc; font-size:0.9em; margin-bottom:15px;">חשב את הזמן המושלם להעלות את האדיט שלך כדי לקבל הכי הרבה צפיות.</p>
-        <button id="open-popup" style="padding:10px 20px; border-radius:10px; background:#3ba4ff; color:white; border:none; cursor:pointer; transition:0.3s;">פתח כלי</button>
-      </div>
-
-      <!-- יוצר האשטגים -->
-      <div class="tool-card" style="background:#1a1f2b; padding:20px; border-radius:15px; width:250px; text-align:center; box-shadow:0 0 15px rgba(0,0,0,0.3); transition:0.3s;">
-        <div class="icon" style="font-size:50px; margin-bottom:15px;">#️⃣</div>
-        <h4 style="color:#3ba4ff; margin-bottom:10px;">AI Hashtag Generator</h4>
-        <p style="color:#ccc; font-size:0.9em; margin-bottom:15px;">הכנס כותרת והכלי ייצור האשטגים בעברית, אנגלית וקצת טרנדיים.</p>
-        <button id="open-hashtag-popup" style="padding:10px 20px; border-radius:10px; background:#3ba4ff; color:white; border:none; cursor:pointer; transition:0.3s;">פתח כלי</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- הפופאפ של חישוב זמן אידיאלי -->
-  <div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:10000;">
-    <div style="background:#11141b; padding:30px; border-radius:15px; width:90%; max-width:400px; text-align:center; position:relative;">
-      <h3 style="color:#3ba4ff; margin-bottom:20px;">תזמון העלאה - מחשבון זמן אידיאלי</h3>
-      <label style="color:#ccc; display:block; margin-bottom:5px;">נושא האדיט:</label>
-      <select id="topic" style="width:100%; padding:10px; border-radius:8px; background:#1a1f2b; color:white; border:none; margin-bottom:15px;">
-        <option value="סדרה">סדרה</option>
-        <option value="סרט">סרט</option>
-        <option value="כדורגל">כדורגל</option>
-        <option value="אחר">אחר</option>
-      </select>
-      <label style="color:#ccc; display:block; margin-bottom:5px;">קהל יעד:</label>
-      <select id="audience" style="width:100%; padding:10px; border-radius:8px; background:#1a1f2b; color:white; border:none; margin-bottom:15px;">
-        <option value="ילדים">ילדים</option>
-        <option value="בני נוער">בני נוער</option>
-        <option value="מבוגרים">מבוגרים</option>
-        <option value="כל הקהל">כל הקהל</option>
-      </select>
-      <label style="color:#ccc; display:block; margin-bottom:5px;">סוג אדיט:</label>
-      <select id="editType" style="width:100%; padding:10px; border-radius:8px; background:#1a1f2b; color:white; border:none; margin-bottom:15px;">
-        <option value="קליפ מהיר">קליפ מהיר</option>
-        <option value="אדיט רגיל">אדיט רגיל</option>
-        <option value="אדיט מורכב">אדיט מורכב</option>
-      </select>
-      <button id="calculate" style="padding:10px 20px; border-radius:10px; background:#3ba4ff; color:white; border:none; cursor:pointer; margin-top:10px;">חשב</button>
-      <p id="result" style="color:#3ba4ff; margin-top:20px; font-weight:600;"></p>
-      <span id="close-popup" style="position:absolute; top:10px; right:15px; color:#fff; font-size:20px; cursor:pointer;">✖</span>
-    </div>
   </div>
 
-  <!-- פופאפ יוצר האשטגים -->
-  <div id="hashtag-popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:10000;">
-    <div style="background:#11141b; padding:30px; border-radius:15px; width:90%; max-width:450px; text-align:center; position:relative;">
-      <h3 style="color:#3ba4ff; margin-bottom:20px;">AI Hashtag Generator</h3>
-      <input id="hashtag-title" type="text" placeholder="הכנס כותרת אדיט" 
-        style="width:100%; padding:10px; border-radius:8px; background:#1a1f2b; color:white; border:none; margin-bottom:15px;"/>
-      <select id="hashtag-category" style="width:100%; padding:10px; border-radius:8px; background:#1a1f2b; color:white; border:none; margin-bottom:15px;">
-        <option value="other">אחר</option>
-        <option value="football">כדורגל</option>
-        <option value="series">סדרה</option>
-        <option value="movie">סרט</option>
-        <option value="funny">מצחיק/בידור</option>
-      </select>
-      <button id="generate-hashtags" style="padding:10px 20px; border-radius:10px; background:#3ba4ff; color:white; border:none; cursor:pointer; margin-bottom:15px;">
-        הפק האשטגים
-      </button>
-      <div id="hashtags-result" style="color:#3ba4ff; text-align:left; margin-top:10px; font-size:0.9em; word-break:break-word;"></div>
-      <button id="copy-hashtags" style="padding:8px 15px; border-radius:10px; background:#338bda; color:white; border:none; cursor:pointer; margin-top:15px;">
-        העתק הכל
-      </button>
-      <span id="close-hashtag-popup" style="position:absolute; top:10px; right:15px; color:#fff; font-size:20px; cursor:pointer;">✖</span>
-    </div>
-  </div>
+  <!-- תוכן האתר (מוסתר עד ההתחברות) -->
+  <main>
+    <header>
+      <h1>NoamEditz1</h1>
+      <nav>
+        <a href="#home">בית</a>
+        <a href="#contest">תחרות</a>
+        <a href="#community">קהילה</a>
+        <a href="#about">עליי</a>
+        <a href="#contact">צור קשר</a>
+      </nav>
+    </header>
 
-  <section id="contact" class="contact">
-    <h3>📩 צור קשר - לא פעיל.</h3>
-    <form>
-      <input type="text" placeholder="שם מלא" required />
-      <input type="email" placeholder="אימייל" required />
-      <textarea placeholder="הודעה..." rows="4" required></textarea>
-      <button type="submit">שלח</button>
-    </form>
-  </section>
+    <section id="home" class="hero">
+      <h2>ברוכים הבאים ל-NoamEditz1 🎬</h2>
+      <p>האדיטים הכי חזקים, האנרגיות הכי גבוהות – והקהילה הכי נאמנה 🔥</p>
+      <button onclick="window.open('https://www.youtube.com/channel/UCM8QovN6fSGExubXBPXqPsw/', '_blank')">צפה בערוץ</button>
+    </section>
 
-  <footer>
-    <p>© 2025 NoamEditz1 | נבנה באהבה ❤️ על ידי נועם</p>
-  </footer>
+    <footer>
+      <p>© 2025 NoamEditz1 | נבנה באהבה ❤️ על ידי נועם</p>
+    </footer>
+  </main>
 
   <script>
-    // פתיחת וסגירת הפופאפ של תזמון
-    const popup = document.getElementById('popup');
-    document.getElementById('open-popup').onclick = () => { popup.style.display = 'flex'; };
-    document.getElementById('close-popup').onclick = () => { popup.style.display = 'none'; };
+    const loginForm = document.getElementById('login-form');
+    const loginScreen = document.getElementById('login-screen');
+    const mainContent = document.querySelector('main');
+    const message = document.getElementById('login-message');
 
-    // חישוב זמן אידיאלי
-    function calculateBestTime(topic, audience, editType) {
-      let day = "";
-      let hour = "";
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-      switch(topic) {
-        case "סדרה":
-        case "סרט": day = "חמישי-שבת"; break;
-        case "כדורגל": day = "ראשון-שלישי"; break;
-        default: day = "כל יום אפשרי";
+      const formData = new FormData(loginForm);
+      const response = await fetch(loginForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        message.textContent = "מתחבר...";
+        setTimeout(() => {
+          loginScreen.style.display = "none";
+          mainContent.style.display = "block";
+        }, 1000);
+      } else {
+        message.textContent = "שגיאה בהתחברות. נסה שוב.";
       }
-
-      switch(audience) {
-        case "ילדים": hour = "16:00-18:00"; break;
-        case "בני נוער": hour = "18:00-20:00"; break;
-        case "מבוגרים": hour = "20:00-23:00"; break;
-        default: hour = "17:00-21:00";
-      }
-
-      if(editType === "קליפ מהיר") {
-        if(hour === "16:00-18:00") hour = "17:00-19:00";
-        else if(hour === "18:00-20:00") hour = "19:00-21:00";
-      } else if(editType === "אדיט מורכב") {
-        if(day === "חמישי-שבת") day = "רביעי-שישי";
-        else if(day === "ראשון-שלישי") day = "שני-רביעי";
-      }
-
-      return `הזמן המושלם להעלות את האדיט שלך הוא בימים: ${day}, בשעות: ${hour}.`;
-    }
-
-    document.getElementById('calculate').onclick = () => {
-      const topic = document.getElementById('topic').value;
-      const audience = document.getElementById('audience').value;
-      const editType = document.getElementById('editType').value;
-
-      const result = calculateBestTime(topic, audience, editType);
-      document.getElementById('result').innerText = result;
-    };
-
-    // פופאפ יוצר האשטגים
-    const hashtagPopup = document.getElementById('hashtag-popup');
-    document.getElementById('open-hashtag-popup').onclick = () => { hashtagPopup.style.display = 'flex'; };
-    document.getElementById('close-hashtag-popup').onclick = () => { hashtagPopup.style.display = 'none'; };
-
-    // מילון סינונימים
-    const synonyms = {
-      "ניימאר":["Neymar","SoccerStar","FootballPlayer"],
-      "אדיט":["Edit","VideoEdit","Clip"],
-      "מצחיק":["Funny","Humor","Comedy"],
-      "כדורגל":["Football","Soccer","Futbol"],
-      "סדרה":["Series","TVShow","Episode"],
-      "סרט":["Movie","Film","Cinema"],
-      "כיף":["Fun","Enjoy","Exciting"],
-      "גול":["Goal","Score","Highlight"]
-    };
-
-    const relatedWords = {
-      "football":["#Goal","#Soccer","#FootballEdit","#Sports","#Highlights"],
-      "series":["#TVShow","#Episode","#SeriesEdit","#Streaming","#Binge"],
-      "movie":["#Film","#MovieEdit","#Cinema","#Trending","#Clip"],
-      "funny":["#FunnyEdit","#Comedy","#Humor","#LOL","#Viral"],
-      "other":["#Editz","#Video","#Clip","#Trending","#Creative"]
-    };
-
-    function generateHashtags(title, category) {
-      if(!title) return "אנא הכנס כותרת כדי ליצור האשטגים.";
-
-      const words = title.split(" ").filter(w => w.length>1);
-      let heb = words.map(w => `#${w}`);
-      let eng = words.map(w => synonyms[w] ? `#${synonyms[w][0]}` : `#${w}`);
-      let related = relatedWords[category] || relatedWords["other"];
-
-      return `<strong>עברית:</strong> ${heb.join(" ")}<br>
-              <strong>אנגלית:</strong> ${eng.join(" ")}<br>
-              <strong>קשורים:</strong> ${related.join(" ")}`;
-    }
-
-    document.getElementById('generate-hashtags').onclick = () => {
-      const title = document.getElementById('hashtag-title').value;
-      const category = document.getElementById('hashtag-category').value;
-      document.getElementById('hashtags-result').innerHTML = generateHashtags(title, category);
-    };
-
-    document.getElementById('copy-hashtags').onclick = () => {
-      const text = document.getElementById('hashtags-result').innerText;
-      navigator.clipboard.writeText(text).then(() => alert("ההאשטגים הועתקו!"));
-    };
+    });
   </script>
 </body>
 </html>
